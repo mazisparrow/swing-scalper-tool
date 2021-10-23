@@ -1,0 +1,282 @@
+/* Scss Document */
+
+@font-face {
+  font-family: Roboto-BoldItalic;
+  src: url("../src/assets/font-family/Roboto-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url("../src/assets/font-family/Roboto-Regular.ttf");
+}
+
+
+$white: #fff;
+$primary: #9C1265;
+
+$extra-larger-desktop-width: 1400px;
+$larger-desktop-width: 1200px;
+$smaller-desktop-width: 1024px;
+$tablet-width: 992px;
+$mobile-width: 768px;
+$phone-width: 640px;
+$small-phone-width: 480px;
+
+/*Media Queries*/
+@mixin ex-desktop {
+  @media (max-width: #{$extra-larger-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin ex-desktop-min {
+  @media (min-width: #{$extra-larger-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (max-width: #{$larger-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin desktop-min {
+  @media (min-width: #{$larger-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin s-desktop {
+  @media (max-width: #{$smaller-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin s-desktop-min {
+  @media (min-width: #{$smaller-desktop-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+@mixin phone {
+  @media (max-width: #{$phone-width - 1px}) {
+    @content;
+  }
+}
+@mixin s-phone {
+  @media (max-width: #{$small-phone-width - 1px}) {
+    @content;
+  }
+}
+
+
+.white {
+  color: $white;
+}
+.white-bg {
+  background: $white;
+}
+
+.primary {
+  color: $primary;
+}
+.primary-bg {
+  background: $primary;
+}
+.pad{
+  padding: 0px;
+
+}
+.mar{
+  margin: 0px;
+}
+
+body {
+  @extend .pad, .mar;
+}
+
+.appbar-setting{
+  @extend .white-bg;
+border-bottom: 2px solid $primary;
+  .appbar-btn{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .MuiButton-textInherit{
+    @extend .primary;
+    font-family: Roboto-Regular;
+    font-size: 20px;
+line-height: 23px;
+top: -28px;
+    position: relative;
+    margin-right: 15px;
+    @include desktop{
+      font-size: 15px;
+      margin-right: 8px;
+
+    }
+  }
+  .MuiButton-containedInherit{
+    @extend .primary-bg;
+    font-family: Roboto;
+font-style: normal;
+font-family: Roboto-Regular;
+font-size: 18px;
+line-height: 20px;
+position: relative;
+top: -40px;
+@include desktop{
+  font-size: 15px;
+
+}
+  }
+  .signup-appbar{
+    margin-left: auto;
+  }
+  .mobmenuicon{
+    @extend .primary;
+  }
+ 
+
+}
+ .mob-btn{
+  .MuiTypography-root{
+@extend .primary;
+  }
+ 
+}
+.hero-section{
+  .card-main{
+    margin-top: 140px;
+    @include tablet{
+      margin-top: 100px;
+    }
+  }
+  .MuiTypography-h5{
+    font-family: Roboto-Regular;
+font-style: normal;
+font-size: 20px;
+line-height: 24px;
+  }
+  .MuiButton-textPrimary{
+    font-family: Roboto-Regular;
+font-style: normal;
+font-size: 18px;
+line-height: 20px;
+color: #3F51B5;
+padding: 8px 16px;
+&:hover{
+  background: linear-gradient(0deg, rgba(63, 81, 181, 0.16), rgba(63, 81, 181, 0.16)), #FFFFFF;;
+}
+  }
+  .RELIABLE{
+    font-family: Roboto-BoldItalic;
+    font-style: normal;
+font-size: 14px;
+line-height: 24px;
+color: $primary;
+
+  }
+  .plan{
+    color:  #37B400;;
+  }
+  .hero-reliable{
+    margin-top: 70px;
+  }
+}
+.dilog-box{
+  .MuiDialog-paper{
+    background: $primary;
+    max-width: 700px;
+  }
+  .close-icon{
+    color: black;
+  }
+  
+}
+.privcybtn{
+  font-family: Roboto-Regular;
+font-style: normal;
+margin-left: auto;
+font-size: 18px;
+line-height: 20px;
+color: white;
+}
+.fab-setting{
+  background: transparent;
+    border: 1px solid  #37B400;
+    box-shadow: none;
+    color:  #37B400;
+    margin-left: 20px;
+    &:hover{
+      background: transparent;
+    border: 1px solid  #37B400;
+    box-shadow: none;
+    color:  #37B400;
+    }
+    @include tablet{
+      margin-left: -21px;
+    }
+}
+.trial-btn{
+  padding: 6px 14px;
+  font-family: Roboto-Regular;
+font-style: normal;
+font-size: 14px;
+line-height: 18px;
+color: #FFC000;
+border: 1px solid #FFC000;
+margin-left: 10px;
+}
+.privacy{
+  margin-left: auto !important;
+  text-align: end !important;
+}
+
+
+.ffflex{
+display: grid;
+grid-template-columns: 1fr 1fr;
+margin-bottom: 130px;
+margin-right: 100px;
+background-color: white !important;
+}
+
+.asdasd{
+
+  width: 100% !important;
+}
+
+@media (max-width:1047px){
+  .ffflex{
+    margin-right: 0px !important;
+    }
+}
+
+
+@media (max-width:855px){
+  .ffflex{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 80px;
+    gap: 80px;
+  }
+
+  .asdasd{
+
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .asdasd *{
+    width: 100%;
+  }
+  
+}

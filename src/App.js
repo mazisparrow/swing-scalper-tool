@@ -1,24 +1,32 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Signin from './Components/Sign-in/Index'
+import Signup from './Components/Sign-up/Index'
+import Dashboard from './Components/Dashboard/Index'
+import Journal from './Components/Journal/Index'
+import Trade from './Components/Trade/Index'
+import Watchlist from './Components/Watchlist/Index'
+import {  Route, Switch  } from "react-router-dom";
+import CssBaseline from '@mui/material/CssBaseline';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+   <StyledEngineProvider injectFirst>
+     <CssBaseline/>
+     <Switch>
+     <Route exact path="/" component={Signin} />
+     <Route path="/signup" component={Signup} />
+     <Route path="/dashboard" component={Dashboard} />
+     <Route path="/journal" component={Journal} />
+     <Route path="/trade" component={Trade} />
+     <Route path="/watchlist" component={Watchlist} />
+
+   
+     </Switch>
+    </StyledEngineProvider>
+    </>
   );
 }
 
