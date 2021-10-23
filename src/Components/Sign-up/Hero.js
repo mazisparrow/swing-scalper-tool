@@ -33,17 +33,17 @@ export default function Hero() {
             </Grid>
             <Grid item lg={6} md={6} sm={8} xs={10} >
                 <Box className="hero-reliable" >
-            <Typography variant="body2"  className="RELIABLE" >
-           1.   Build a <span className="plan" > PLAN </span> from  <span className="plan" >RELIABLE INFORMATION  </span>
+                <Typography variant="body2"  className="RELIABLE" >
+           1.   Build a trading <span className="plan" > PLAN </span> based on  <span className="plan" >RELIABLE INFORMATION.  </span>
         </Typography>
         <Typography variant="body2"   className="RELIABLE" >
-           2.   Have the <span className="plan" > DISCIPLINE</span> from  <span className="plan" >PLAN </span>
+           2.   Develop the <span className="plan" > DISCIPLINE</span> to stick to your  <span className="plan" >PLAN. </span>
         </Typography>
         <Typography variant="body2"   className="RELIABLE" >
-           3.    <span className="plan" > EXECUTE</span>  without delay when you  <span className="plan" >PLAN </span>
+           3.    <span className="plan" > EXECUTE</span>  your plan without delay.
         </Typography>
         <Typography variant="body2"   className="RELIABLE" >
-           4.   Always put   <span className="plan" > RISK</span>  before   <span className="plan" >REWARD</span>
+           4.   Always   <span className="plan2" > RISK</span>  before   <span className="plan" >REWARD.</span>
         </Typography>
         </Box>
 
