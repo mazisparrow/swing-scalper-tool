@@ -12,7 +12,7 @@ import {
     ChartLegend,
   } from "@progress/kendo-react-charts";
   import "hammerjs";
-  const categories = [2002, 2003, 2004];
+  const categories = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   const series = [
     {
       name: "Loss",

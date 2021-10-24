@@ -37,7 +37,7 @@ export default function Index() {
         setDataState(e.dataState);
       }}
     >
-      <Column field="ev" title="T" width="80px" filterable={false} />
+      <Column field="ev" title="Trade" width="80px" filterable={false} />
       <Column field="sym" title="Ticker" filterable={false} />
       <Column field="x" title="Exchange ID" filterable={false} />
       <Column field="i" title="Trade ID" filterable={false} />
