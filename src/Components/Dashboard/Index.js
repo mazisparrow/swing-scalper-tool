@@ -12,6 +12,7 @@ import {
     ChartLegend,
   } from "@progress/kendo-react-charts";
   import "hammerjs";
+  import { withAuthenticator } from '@aws-amplify/ui-react'
   const categories = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   const series = [
     {
@@ -174,3 +175,4 @@ export default function Index() {
         </div>
     )
 }
+export default withAuthenticator(App)
