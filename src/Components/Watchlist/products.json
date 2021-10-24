@@ -1,6 +1,6 @@
 [{
     "ProductID" : 1,
-    "ProductName" : "Chai",
+    "ProductName" : "Aapl",
     "SupplierID" : 1,
     "CategoryID" : 1,
     "QuantityPerUnit" : "10 boxes x 20 bags",

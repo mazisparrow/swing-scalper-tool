@@ -12,7 +12,7 @@ const initialDataState = {
       dir: "asc",
     },
   ],
-  take: 10,
+  take: 25,
   skip: 0,
 };
 
@@ -27,7 +27,8 @@ export default function Index() {
       sortable={true}
       filterable={true}
       style={{
-        height: "400px",
+        height: "100%",
+        width: "100%"
       }}
       data={process(products, dataState)}
       {...dataState}
@@ -36,16 +37,14 @@ export default function Index() {
       }}
     >
       <Column field="ProductID" title="ID" width="80px" filterable={false} />
-      <Column field="ProductName" title="Name" width="250px" />
-      <Column field="UnitPrice" title="Price" filter="numeric" width="150px" />
+      <Column field="ProductName" title="Ticker" filterable={false} />
+      <Column field="UnitPrice" title="Price" />
+      <Column field="UnitPrice" title="Stop Loss" filterable={false} />
+      <Column field="UnitPrice" title="Price Target" filterable={false} />
+      <Column field="UnitPrice" title="Risk/Reward(per 1x)" filter="numeric" />
+      <Column field="UnitPrice" title="RSI" filter="numeric" />
       <Column
-        field="UnitsInStock"
-        title="In stock"
-        filter="numeric"
-        width="150px"
-      />
-      <Column
-        field="Discontinued"
+        field="Buy Zone"
         filter="boolean"
         cell={(props) => (
           <td>
@@ -53,6 +52,19 @@ export default function Index() {
               disabled={true}
               type="checkbox"
               checked={props.dataItem[props.field || ""]}
+            />
+          </td>
+        )}
+      />
+      <Column
+        field="Buy Trigger"
+        filter="boolean"
+        cell={(props) => (
+          <td>
+            <input
+              disabled={true}
+              type="checkbox"
+              checked={props.dataItem[props.field || "true"]}
             />
           </td>
         )}

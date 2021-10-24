@@ -12,7 +12,7 @@ const initialDataState = {
       dir: "asc",
     },
   ],
-  take: 10,
+  take: 40,
   skip: 0,
 };
 
@@ -28,7 +28,8 @@ export default function Index() {
       sortable={true}
       filterable={true}
       style={{
-        height: "400px",
+        height: "100%",
+        width: "100%",
       }}
       data={process(products, dataState)}
       {...dataState}
@@ -36,28 +37,15 @@ export default function Index() {
         setDataState(e.dataState);
       }}
     >
-      <Column field="ProductID" title="ID" width="80px" filterable={false} />
-      <Column field="ProductName" title="Name" width="250px" />
-      <Column field="UnitPrice" title="Price" filter="numeric" width="150px" />
-      <Column
-        field="UnitsInStock"
-        title="In stock"
-        filter="numeric"
-        width="150px"
-      />
-      <Column
-        field="Discontinued"
-        filter="boolean"
-        cell={(props) => (
-          <td>
-            <input
-              disabled={true}
-              type="checkbox"
-              checked={props.dataItem[props.field || ""]}
-            />
-          </td>
-        )}
-      />
+      <Column field="ev" title="T" width="80px" filterable={false} />
+      <Column field="sym" title="Ticker" filterable={false} />
+      <Column field="x" title="Exchange ID" filterable={false} />
+      <Column field="i" title="Trade ID" filterable={false} />
+      <Column field="z" title="Tape" />
+      <Column field="p" title="Price" filterable={false}/>
+      <Column field="s" title="Trade Size" filter="numeric"  />
+      <Column field="c" title="Trade Conditions" filterable={false}/>
+      <Column field="t" title="Timestamp" />
     </Grid>
             </Box>
             <Footer/>
