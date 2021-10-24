@@ -82,7 +82,7 @@ export default function Index() {
               height: 350,
             }}
           >
-            <ChartTitle text="TOTAL PROFIT/LOSS" />
+            <ChartTitle text="Total P/L" />
             <ChartLegend position="top" orientation="horizontal" />
             <ChartSeries>
               <ChartSeriesItem
@@ -111,7 +111,7 @@ export default function Index() {
               height: 350,
             }}
           >
-            <ChartTitle text="Column Chart" />
+            <ChartTitle text="Profit / Loss" />
             <ChartLegend position="top" orientation="horizontal" />
             <ChartCategoryAxis>
               <ChartCategoryAxisItem categories={categories} startAngle={45} />
@@ -145,7 +145,7 @@ export default function Index() {
               height: 350,
             }}
           >
-            <ChartTitle text="Line Chart" />
+            <ChartTitle text="Risk / Reward Trend" />
             <ChartLegend position="top" orientation="horizontal" />
             <ChartCategoryAxis>
               <ChartCategoryAxisItem categories={categories} startAngle={45} />

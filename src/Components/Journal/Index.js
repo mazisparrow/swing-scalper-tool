@@ -120,7 +120,7 @@ export default function Index() {
           Add new
         </button>
       </GridToolbar>
-      <Column cell={CommandCell} width="40px" filterable={false} />
+      <Column cell={CommandCell} width="100px" filterable={false} />
       <Column field="openDate" title="Open Date" editor="date" format="{0:d}" />
       <Column field="ticker" title="Ticker" filterable={false} />
       <Column field="quantity" title="Qty" filterable={false} />
