@@ -1,7 +1,0 @@
-{
-    "tableName": "techtelosDb",
-    "partitionKeyName": "UserID",
-    "partitionKeyType": "S",
-    "sortKeyName": "Journal",
-    "sortKeyType": "S"
-}

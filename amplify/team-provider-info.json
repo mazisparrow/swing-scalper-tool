@@ -10,11 +10,6 @@
       "StackName": "amplify-techtelos1-dev-122610",
       "StackId": "arn:aws:cloudformation:us-east-2:759664662576:stack/amplify-techtelos1-dev-122610/7313a440-2d0b-11ec-bdf3-0a401cfca22e",
       "AmplifyAppId": "d2pkk8hedbfkav"
-    },
-    "categories": {
-      "auth": {
-        "techtelos1": {}
-      }
     }
   }
 }
