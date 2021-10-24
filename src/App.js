@@ -9,6 +9,7 @@ import Watchlist from './Components/Watchlist/Index'
 import {  Route, Switch  } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
 function App() {
   return (
@@ -30,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App)
