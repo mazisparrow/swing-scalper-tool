@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
 import './App.scss';
 import Signin from './Components/Sign-in/Index'
 import Signup from './Components/Sign-up/Index'
@@ -10,6 +11,9 @@ import {  Route, Switch  } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { withAuthenticator } from '@aws-amplify/ui-react'
+
+Amplify.configure(awsconfig);
+
 
 function App() {
   return (
