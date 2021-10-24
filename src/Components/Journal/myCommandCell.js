@@ -16,8 +16,5 @@ export const MyCommandCell = props => {
       <button className="k-primary k-button k-grid-edit-command" onClick={() => props.edit(dataItem)}>
         Edit
       </button>
-      <button className="k-button k-grid-remove-command" onClick={() => window.confirm("Confirm deleting: " + dataItem.ProductName) && props.remove(dataItem)}>
-        Remove
-      </button>
     </td>;
 };

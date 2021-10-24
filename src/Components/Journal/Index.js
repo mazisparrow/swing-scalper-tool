@@ -11,6 +11,16 @@ import {
   import { MyCommandCell } from "./myCommandCell";
   import { DropDownCell } from "./myDropDownCell";
   import { insertItem, getItems, updateItem, deleteItem } from "./services";
+  const initialDataState = {
+    sort: [
+      {
+        field: "code",
+        dir: "asc",
+      },
+    ],
+    take: 40,
+    skip: 0,
+  };
 export default function Index() {
     const editField = "inEdit";
     const [data, setData] = React.useState(sampleProducts);
@@ -81,7 +91,7 @@ export default function Index() {
     const addNew = () => {
       const newDataItem = {
         inEdit: true,
-        Discontinued: false,
+        status: true,
         ProductID: new Date().getMilliseconds(),
       };
       setData([newDataItem, ...data]);
@@ -92,10 +102,17 @@ export default function Index() {
             <Navbar/>
             <Box my={12} mb={15}>
             <Grid
+            pageable={true}
+            sortable={true}
+            filterable={true}
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
       data={data}
       onItemChange={itemChange}
       editField={editField}
-      dataItemKey={"ProductID"}
+      dataItemKey={"FirstOrderedOn"}
       
     >
       <GridToolbar>
@@ -103,17 +120,20 @@ export default function Index() {
           Add new
         </button>
       </GridToolbar>
-      <Column field="ProductID" title="Id" width="50px" editable={false} />
-      <Column field="ProductName" title="Product Name" />
-      <Column
-        field="FirstOrderedOn"
-        title="First Ordered"
-        editor="date"
-        format="{0:d}"
-      />
-      <Column field="UnitsInStock" title="Units" editor="numeric" />
-      <Column field="Discontinued" title="Discontinued" cell={DropDownCell} />
-      <Column cell={CommandCell} width="240px" />
+      <Column cell={CommandCell} width="40px" filterable={false} />
+      <Column field="openDate" title="Open Date" editor="date" format="{0:d}" />
+      <Column field="ticker" title="Ticker" filterable={false} />
+      <Column field="quantity" title="Qty" filterable={false} />
+      <Column field="buyPrice" title="Avg Price" filterable={false} />
+      <Column field="stopLoss" title="Stop Loss" filterable={false} />
+      <Column field="priceTgt" title="Price Target" filterable={false} />
+      <Column field="tradeRisk" title="Risk" editable={false} filterable={false} />
+      <Column field="tradeReward" title="Reward" editable={false} filterable={false} />
+      <Column field="plPercent" title="P/L %" editable={false} filterable={false} />
+      <Column field="sellDate" title="Sell Date" editor="date" format="{0:d}"/>
+      <Column field="sellPrice" title="Sell Price" editor="numeric" filterable={false} />
+      <Column field="status" title="Status" cell={DropDownCell} width="100px" />
+      <Column field="strategy" title="Strategy" width="150px" editable={false} filterable={false} />
     </Grid>
             </Box>
             <Footer/>

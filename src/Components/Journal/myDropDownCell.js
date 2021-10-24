@@ -2,14 +2,12 @@ import * as React from 'react';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 export const DropDownCell = props => {
   const localizedData = [{
-    text: 'yes',
+    text: 'Open',
     value: true
   }, {
-    text: 'no',
+    text: 'Closed',
     value: false
-  }, {
-    text: '(empty)',
-    value: null
+
   }];
 
   const handleChange = e => {
@@ -28,10 +26,10 @@ export const DropDownCell = props => {
     dataItem
   } = props;
   const field = props.field || '';
-  const dataValue = dataItem[field] === null ? '' : dataItem[field];
+  const dataValue = dataItem[field] === "" ? '' : dataItem[field];
   return <td>
         {dataItem.inEdit ? <DropDownList style={{
-      width: "100px"
+      width: "100%"
     }} onChange={handleChange} value={localizedData.find(c => c.value === dataValue)} data={localizedData} textField="text" /> : dataValue.toString()}
       </td>;
 };

@@ -8,7 +8,7 @@ export const sampleProducts = [{
     "UnitsInStock": 39,
     "UnitsOnOrder": 0,
     "ReorderLevel": 10,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 1,
       "CategoryName": "Beverages",
@@ -25,7 +25,7 @@ export const sampleProducts = [{
     "UnitsInStock": 17,
     "UnitsOnOrder": 40,
     "ReorderLevel": 25,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 1,
       "CategoryName": "Beverages",
@@ -42,7 +42,7 @@ export const sampleProducts = [{
     "UnitsInStock": 13,
     "UnitsOnOrder": 70,
     "ReorderLevel": 25,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 2,
       "CategoryName": "Condiments",
@@ -59,7 +59,7 @@ export const sampleProducts = [{
     "UnitsInStock": 53,
     "UnitsOnOrder": 0,
     "ReorderLevel": 0,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 2,
       "CategoryName": "Condiments",
@@ -76,7 +76,7 @@ export const sampleProducts = [{
     "UnitsInStock": 0,
     "UnitsOnOrder": 0,
     "ReorderLevel": 0,
-    "Discontinued": true,
+    "status": true,
     "Category": {
       "CategoryID": 2,
       "CategoryName": "Condiments",
@@ -93,7 +93,7 @@ export const sampleProducts = [{
     "UnitsInStock": 120,
     "UnitsOnOrder": 0,
     "ReorderLevel": 25,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 2,
       "CategoryName": "Condiments",
@@ -110,7 +110,7 @@ export const sampleProducts = [{
     "UnitsInStock": 15,
     "UnitsOnOrder": 0,
     "ReorderLevel": 10,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 7,
       "CategoryName": "Produce",
@@ -127,7 +127,7 @@ export const sampleProducts = [{
     "UnitsInStock": 6,
     "UnitsOnOrder": 0,
     "ReorderLevel": 0,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 2,
       "CategoryName": "Condiments",
@@ -144,7 +144,7 @@ export const sampleProducts = [{
     "UnitsInStock": 29,
     "UnitsOnOrder": 0,
     "ReorderLevel": 0,
-    "Discontinued": true,
+    "status": true,
     "Category": {
       "CategoryID": 6,
       "CategoryName": "Meat/Poultry",
@@ -161,7 +161,7 @@ export const sampleProducts = [{
     "UnitsInStock": 31,
     "UnitsOnOrder": 0,
     "ReorderLevel": 0,
-    "Discontinued": false,
+    "status": false,
     "Category": {
       "CategoryID": 8,
       "CategoryName": "Seafood",

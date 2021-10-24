@@ -15,19 +15,19 @@ import {
   const categories = [2002, 2003, 2004];
   const series = [
     {
-      name: "India",
+      name: "Loss",
       data: [3.907, 7.943, 7.848],
     },
     {
-      name: "Russian Federation",
-      data: [4.743, 7.295, 7.175],
-    },
-    {
-      name: "Germany",
+      name: "Profit",
       data: [0.21, 0.375, 1.161],
     },
     {
-      name: "World",
+      name: "Risk",
+      data: [1.988, 2.733, 3.994],
+    },
+    {
+      name: "Reward",
       data: [1.988, 2.733, 3.994],
     },
   ];
@@ -51,21 +51,17 @@ import {
   ];
   const pieData = [
     {
-      name: "India",
-      share: 0.24,
+      name: "LOSS",
+      share: 12800,
     },
     {
-      name: "Russian Federation",
-      share: 0.26,
+      name: "OPEN TRADES",
+      share: 3499,
       explode: true,
     },
     {
-      name: "Germany",
-      share: 0.1,
-    },
-    {
-      name: "World",
-      share: 0.4,
+      name: "PROFIT",
+      share: 16909,
     },
   ];
 
@@ -86,7 +82,7 @@ export default function Index() {
               height: 350,
             }}
           >
-            <ChartTitle text="Pie Chart" />
+            <ChartTitle text="TOTAL PROFIT/LOSS" />
             <ChartLegend position="top" orientation="horizontal" />
             <ChartSeries>
               <ChartSeriesItem
