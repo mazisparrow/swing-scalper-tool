@@ -124,15 +124,15 @@ export default function Index() {
       <Column field="openDate" title="Open Date" editor="date" format="{0:d}" />
       <Column field="ticker" title="Ticker" filterable={false} />
       <Column field="quantity" title="Qty" filterable={false} />
-      <Column field="buyPrice" title="Avg Price" filterable={false} />
+      <Column field="avgPrice" title="Avg Price" filterable={false} />
       <Column field="stopLoss" title="Stop Loss" filterable={false} />
-      <Column field="priceTgt" title="Price Target" filterable={false} />
+      <Column field="pTarget" title="Price Target" filterable={false} />
       <Column field="tradeRisk" title="Risk" editable={false} filterable={false} />
       <Column field="tradeReward" title="Reward" editable={false} filterable={false} />
-      <Column field="plPercent" title="P/L %" editable={false} filterable={false} />
+      <Column field="profitLossPercentage" title="P/L %" editable={false} filterable={false} />
       <Column field="sellDate" title="Sell Date" editor="date" format="{0:d}"/>
       <Column field="sellPrice" title="Sell Price" editor="numeric" filterable={false} />
-      <Column field="status" title="Status" cell={DropDownCell} width="100px" />
+      <Column field="tradeStatus" title="Status" cell={DropDownCell} width="100px" />
       <Column field="strategy" title="Strategy" width="150px" editable={false} filterable={false} />
     </Grid>
             </Box>
