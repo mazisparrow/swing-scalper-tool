@@ -43,7 +43,7 @@ export default function Hero() {
            3.    <span className="plan" > EXECUTE</span>  your plan without delay.
         </Typography>
         <Typography variant="body2"   className="RELIABLE" >
-           4.   Always   <span className="plan2" > RISK</span>  before   <span className="plan" >REWARD.</span>
+           4.   Consider   <span className="plan2" > RISK</span>  before   <span className="plan" >REWARD.</span>
         </Typography>
         </Box>
 

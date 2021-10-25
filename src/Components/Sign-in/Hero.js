@@ -34,6 +34,7 @@ export default function Hero() {
             <Grid item lg={6} md={6} sm={8} xs={10} >
                 <Box className="hero-reliable" >
             <Typography variant="body2"  className="RELIABLE" >
+         <span className="plan" >Discover PROVEN guided checklist to manage Risk/Reward with our Elite trading journal stage one breakout trading strategy that reduce your risk for maximum reward.  </span>
            1.   Build a trading <span className="plan" > PLAN </span> based on  <span className="plan" >RELIABLE INFORMATION.  </span>
         </Typography>
         <Typography variant="body2"   className="RELIABLE" >
@@ -43,7 +44,7 @@ export default function Hero() {
            3.    <span className="plan" > EXECUTE</span>  your plan without delay.
         </Typography>
         <Typography variant="body2"   className="RELIABLE" >
-           4.   Always   <span className="plan2" > RISK</span>  before   <span className="plan" >REWARD.</span>
+           4.   Consider   <span className="plan2" > RISK</span>  before   <span className="plan" >REWARD.</span>
         </Typography>
         </Box>
 
