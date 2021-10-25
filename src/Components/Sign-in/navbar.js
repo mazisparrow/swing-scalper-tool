@@ -26,18 +26,11 @@ export default function ButtonAppBar() {
           </Button>
           <Hidden  mdDown>
           <div className="appbar-btn" >
-          <Button color="inherit" href="/dashboard" >DASHBOARD</Button>
-          <Button color="inherit" href="/journal">JOURNAL</Button>
-          <Button color="inherit" href="/watchlist">WATCHLIST</Button>
-          <Button color="inherit" href="/trade">TRADE STREAMS</Button>
-          <Fab color="primary" aria-label="add" className="fab-setting" >
-        js
-      </Fab>
-      <Button  className="trial-btn"  > Trial</Button>
+          
+         
           </div>
         
-          <Button size="medium" color="primary" >Support</Button>
-          <Button size="medium" color="primary" >Logout</Button>
+          <Button color="inherit" variant="contained" href="/signup" >signup</Button>
           
           </Hidden>
           <Hidden mdUp>

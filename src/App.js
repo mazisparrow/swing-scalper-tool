@@ -1,3 +1,6 @@
+import Amplify, { Auth } from "aws-amplify";
+import awsconfig from "./aws-exports";
+
 import * as React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
@@ -14,6 +17,10 @@ import { Provider as AuthProvider, Context as AuthContext } from "./context/Auth
 
 import TryToLogin from "./Components/TryToLogin/Index";
 import ConfirmUser from "./Components/ConfirmUser/Index";
+
+//import { withAuthenticator } from '@aws-amplify/ui-react'
+
+Amplify.configure(awsconfig);
 
 function Root() {
   const { state } = React.useContext(AuthContext);

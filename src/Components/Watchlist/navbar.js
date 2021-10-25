@@ -36,7 +36,8 @@ export default function ButtonAppBar() {
       <Button  className="trial-btn"  > Trial</Button>
           </div>
         
-          <Button color="inherit" variant="contained" href="/signup" >signup</Button>
+          <Button size="medium" color="primary" >Support</Button>
+          <Button size="medium" color="primary" >Logout</Button>
           
           </Hidden>
           <Hidden mdUp>
