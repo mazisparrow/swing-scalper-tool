@@ -1,12 +1,10 @@
-import React from 'react'
-import Navbar from '../Dashboard/navbar'
-import Hero from './Hero'
-export default function Index() {
-    return (
-        <div>
-            <Navbar/>
-            <Hero/>
+import React from "react";
+import Hero from "./Hero";
 
-        </div>
-    )
+export default function Index() {
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }

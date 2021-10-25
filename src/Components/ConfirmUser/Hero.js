@@ -5,7 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Logo from "../../assets/images/logo.png";
-import SignIn from "./Login";
+import Confirm from "./Confirm";
 
 export default function Hero() {
   return (
@@ -19,7 +19,7 @@ export default function Hero() {
                   Header
                 </Typography>
                 <Typography variant="body2">Subheader</Typography>
-                <SignIn />
+                <Confirm />
               </CardContent>
             </Card>
           </Grid>
