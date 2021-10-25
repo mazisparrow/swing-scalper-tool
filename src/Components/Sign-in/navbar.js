@@ -26,10 +26,7 @@ export default function ButtonAppBar() {
           </Button>
           <Hidden  mdDown>
           <div className="appbar-btn" >
-          <Button color="inherit" href="/dashboard" >DASHBOARD</Button>
-          <Button color="inherit" href="/journal">JOURNAL</Button>
-          <Button color="inherit" href="/watchlist">WATCHLIST</Button>
-          <Button color="inherit" href="/trade">TRADE STREAMS</Button>
+          
          
           </div>
         

@@ -16,52 +16,34 @@ import {
   const series = [
     {
       name: "Loss",
-      data: [3.907, 7.943, 7.848],
-    },
-    {
-      name: "Profit",
-      data: [0.21, 0.375, 1.161],
+      data: [0, 0, 3.99],
     },
     {
       name: "Risk",
-      data: [1.988, 2.733, 3.994],
+      data: [3.42, 2.1, 3.99],
+    },
+    {
+      name: "Profit",
+      data: [17.1, 10.5, 0],
     },
     {
       name: "Reward",
-      data: [1.988, 2.733, 3.994],
-    },
-  ];
-  const areaData = [
-    {
-      name: "World",
-      data: [3.988, 3.733, 3.994],
-    },
-    {
-      name: "Germany",
-      data: [2.21, 2.375, 2.161],
-    },
-    {
-      name: "Russian Federation",
-      data: [1.743, 1.295, 1.175],
-    },
-    {
-      name: "India",
-      data: [0.907, 0.943, 0.848],
+      data: [17.1, 10.5, 7.54],
     },
   ];
   const pieData = [
     {
       name: "LOSS",
-      share: 12800,
+      share: 3.99,
     },
     {
       name: "OPEN TRADES",
-      share: 3499,
+      share: 45.82,
       explode: true,
     },
     {
       name: "PROFIT",
-      share: 16909,
+      share: 27.6,
     },
   ];
 

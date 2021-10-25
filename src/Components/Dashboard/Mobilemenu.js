@@ -32,7 +32,7 @@ export default function TemporaryDrawer() {
     {name:"JOURNAL" ,  link:"/journal"},
     {name:"WATCHLIST" ,  link:"/watchlist"},
     {name:"TRADE STREAMS" ,  link:"/trade"},
-    {name:"SIGNUP" ,  link:"/signup"},
+    {name:"LOGOUT" ,  link:"/logout"},
     
   ]
 

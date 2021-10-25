@@ -26,14 +26,13 @@ export default function ButtonAppBar() {
           </Button>
           <Hidden  mdDown>
           <div className="appbar-btn" >
-          <Button color="inherit" href="/dashboard" >DASHBOARD</Button>
-          <Button color="inherit" href="/journal">JOURNAL</Button>
-          <Button color="inherit" href="/watchlist">WATCHLIST</Button>
-          <Button color="inherit" href="/trade">TRADE STREAMS</Button>
+          <Typography variant="body2"sx={{marginTop:"30px"}} >
+        Some quick example text to build on the card title and make up the bulk of the card content.
+        </Typography>
          
           </div>
         
-          <Button color="inherit" variant="contained" href="/signup" >signup</Button>
+          <Button color="inherit" variant="contained" href="/signin" >signin</Button>
           
           </Hidden>
           <Hidden mdUp>

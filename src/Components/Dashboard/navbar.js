@@ -75,6 +75,7 @@ export default function ButtonAppBar() {
        
 
         <AppBarSection>
+        <Button size="medium" color="primary" >Support</Button>
         <Button size="medium" color="primary" >Logout</Button>
 
           
