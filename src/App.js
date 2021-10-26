@@ -1,5 +1,5 @@
-import Amplify, { Auth } from "aws-amplify";
-import awsconfig from "./aws-exports";
+// import Amplify, { Auth } from "aws-amplify";
+// import awsconfig from "./aws-exports";
 
 import * as React from "react";
 import logo from "./logo.svg";
@@ -14,6 +14,10 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { Provider as AuthProvider, Context as AuthContext } from "./context/AuthContext";
+import {
+  Provider as WatchListsProvider,
+  Context as WatchListsContext,
+} from "./context/WatchListContext";
 
 import TryToLogin from "./Components/TryToLogin/Index";
 import ConfirmUser from "./Components/ConfirmUser/Index";
@@ -22,7 +26,7 @@ import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 
 //import { withAuthenticator } from '@aws-amplify/ui-react'
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 function Root() {
   const { state } = React.useContext(AuthContext);
@@ -55,14 +59,16 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <TryToLogin>
-          <StyledEngineProvider injectFirst>
-            <CssBaseline />
-            <Switch>
-              <Root />
-            </Switch>
-          </StyledEngineProvider>
-        </TryToLogin>
+        <WatchListsProvider>
+          <TryToLogin>
+            <StyledEngineProvider injectFirst>
+              <CssBaseline />
+              <Switch>
+                <Root />
+              </Switch>
+            </StyledEngineProvider>
+          </TryToLogin>
+        </WatchListsProvider>
       </AuthProvider>
     </>
   );

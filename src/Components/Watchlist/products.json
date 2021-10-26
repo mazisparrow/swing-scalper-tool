@@ -1,19 +1,13 @@
 [{
-    "ProductID" : 1,
-    "ProductName" : "Aapl",
-    "SupplierID" : 1,
-    "CategoryID" : 1,
-    "QuantityPerUnit" : "10 boxes x 20 bags",
-    "UnitPrice" : 18.0000,
-    "UnitsInStock" : 39,
-    "UnitsOnOrder" : 0,
-    "ReorderLevel" : 10,
-    "Discontinued" : false,
-    "Category" : {
-        "CategoryID" : 1,
-        "CategoryName" : "Beverages",
-        "Description" : "Soft drinks, coffees, teas, beers, and ales"
-    }
+    "id" : 1,
+    "createdAt" : "26-10-2021T00:00:00Z",
+    "ticker" : "ticker",
+    "buyPrice" :1000.5 ,
+    "priceTargets" : 100.5,
+    "buyZone" : true,
+    "buyTrigger" :false,
+    "stopLoss" :100.5
+    
 }, {
     "ProductID" : 2,
     "ProductName" : "Chang",
