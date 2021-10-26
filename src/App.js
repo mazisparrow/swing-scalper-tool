@@ -1,5 +1,5 @@
-// import Amplify, { Auth } from "aws-amplify";
-// import awsconfig from "./aws-exports";
+import Amplify, { Auth } from "aws-amplify";
+import awsconfig from "./aws-exports";
 
 import * as React from "react";
 import logo from "./logo.svg";
@@ -23,7 +23,7 @@ import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 
 //import { withAuthenticator } from '@aws-amplify/ui-react'
 
-// Amplify.configure(awsconfig);
+Amplify.configure(awsconfig);
 
 function Root() {
   const { state } = React.useContext(AuthContext);
