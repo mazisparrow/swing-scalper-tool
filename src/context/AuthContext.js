@@ -265,7 +265,7 @@ const tryLocalSignin = (dispatch) => async () => {
   const token = await localStorage.getItem("token");
 
   if (token) {
-    dispatch({ type: "signin", payload: { token } });
+    dispatch({ type: "signin", payload: token });
   }
   dispatch({ type: "remove_loading" });
 };

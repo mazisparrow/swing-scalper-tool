@@ -14,6 +14,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { Provider as AuthProvider, Context as AuthContext } from "./context/AuthContext";
+import { Provider as JournalProvider, Context as JournalContext } from "./context/JournalContext";
 
 import TryToLogin from "./Components/TryToLogin/Index";
 import ConfirmUser from "./Components/ConfirmUser/Index";
@@ -55,14 +56,16 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <TryToLogin>
-          <StyledEngineProvider injectFirst>
-            <CssBaseline />
-            <Switch>
-              <Root />
-            </Switch>
-          </StyledEngineProvider>
-        </TryToLogin>
+        <JournalProvider>
+          <TryToLogin>
+            <StyledEngineProvider injectFirst>
+              <CssBaseline />
+              <Switch>
+                <Root />
+              </Switch>
+            </StyledEngineProvider>
+          </TryToLogin>
+        </JournalProvider>
       </AuthProvider>
     </>
   );
