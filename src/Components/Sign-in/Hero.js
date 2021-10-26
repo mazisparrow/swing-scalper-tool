@@ -13,36 +13,46 @@ export default function Hero() {
       <Container>
         <Grid container justifyContent="center">
           <Grid item lg={6} md={6} sm={8} xs={10}>
-            <Card sx={{ maxWidth: 450 }} className="card-main">
+          <Card sx={{ maxWidth: 450 }} className="card-main">
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Header
+              <Typography variant="h4" className="RELIABLE">
+                Welcome to SwingScalp!
                 </Typography>
-                <Typography variant="body2">Subheader</Typography>
                 <SignIn />
               </CardContent>
-            </Card>
+              <CardContent>
+              <Typography variant="body2" className="RELIABLE3">
+              For a Limited Time, Gain 14 days of Unlimited Access to SwingScalp.com for just $12.99! An Unbeatable Value, With Proven Results!
+              </Typography>
+              </CardContent>
+              </Card>
           </Grid>
           <Grid item lg={6} md={6} sm={8} xs={10}>
             <Box className="hero-reliable">
-              <Typography variant="body2" className="RELIABLE">
-                1. Build a trading <span className="plan"> PLAN </span> based on{" "}
-                <span className="plan">RELIABLE INFORMATION. </span>
+              <Typography variant="h4" className="RELIABLE">
+                <span className="plan">Guidance for more profitable trading </span>
               </Typography>
-              <Typography variant="body2" className="RELIABLE">
-                2. Develop the <span className="plan"> DISCIPLINE</span> to stick to your{" "}
-                <span className="plan">PLAN. </span>
+              <Typography variant="h6" className="RELIABLE2">
+                <span className="plan2">With This Innovative Platform, 
+              You Can; </span>
               </Typography>
-              <Typography variant="body2" className="RELIABLE">
-                3. <span className="plan"> EXECUTE</span> your plan without delay.
-              </Typography>
-              <Typography variant="body2" className="RELIABLE">
-                4. Always <span className="plan2"> RISK</span> before{" "}
+              <Typography className="RELIABLE3">
+Log and Track Your Trades in A Responsive Trading Journal with Real-Time Price Updates</Typography>
+<Typography className="RELIABLE3">
+Get a Precise Knowledge of the Risk vs. Reward on Each Trade Before You Buy</Typography>
+<Typography className="RELIABLE3">
+Utilize Our Complimentary Breakout Scanner to Discover Stocks at Undervalued Prices</Typography>
+<Typography className="RELIABLE3">
+Become A More Disciplined Trader and Watch Your Profits Grow!</Typography>
+            </Box>
+            <img src={Logo} width="100%" height="auto" />
+            <Box className="hero-reliable"></Box>
+            <Typography variant="body2" className="RELIABLE3">
+              Enjoy exclusive access to trade streams from All 19 Exchanges in Real Time with our Premium Membership.</Typography>
+              <Typography variant="body2" className="RELIABLE2">
+                Always evaluate <span className="plan3"> RISK</span> before{" "}
                 <span className="plan">REWARD.</span>
               </Typography>
-            </Box>
-
-            <img src={Logo} width="100%" height="auto" />
           </Grid>
         </Grid>
       </Container>

@@ -19,34 +19,16 @@ import {
       data: [3.907, 7.943, 7.848],
     },
     {
-      name: "Profit",
+      name: "Risk",
       data: [0.21, 0.375, 1.161],
     },
     {
-      name: "Risk",
+      name: "Profit",
       data: [1.988, 2.733, 3.994],
     },
     {
       name: "Reward",
       data: [1.988, 2.733, 3.994],
-    },
-  ];
-  const areaData = [
-    {
-      name: "World",
-      data: [3.988, 3.733, 3.994],
-    },
-    {
-      name: "Germany",
-      data: [2.21, 2.375, 2.161],
-    },
-    {
-      name: "Russian Federation",
-      data: [1.743, 1.295, 1.175],
-    },
-    {
-      name: "India",
-      data: [0.907, 0.943, 0.848],
     },
   ];
   const pieData = [
@@ -111,7 +93,7 @@ export default function Index() {
               height: 350,
             }}
           >
-            <ChartTitle text="Column Chart" />
+            <ChartTitle text="P/L per TRADE" />
             <ChartLegend position="top" orientation="horizontal" />
             <ChartCategoryAxis>
               <ChartCategoryAxisItem categories={categories} startAngle={45} />
@@ -145,7 +127,7 @@ export default function Index() {
               height: 350,
             }}
           >
-            <ChartTitle text="Line Chart" />
+            <ChartTitle text="RISK/REWARD TREND" />
             <ChartLegend position="top" orientation="horizontal" />
             <ChartCategoryAxis>
               <ChartCategoryAxisItem categories={categories} startAngle={45} />

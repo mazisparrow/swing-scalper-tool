@@ -14,6 +14,7 @@
 $white: #fff;
 $primary: #9C1265;
 
+
 $extra-larger-desktop-width: 1400px;
 $larger-desktop-width: 1200px;
 $smaller-desktop-width: 1024px;
@@ -89,11 +90,11 @@ $small-phone-width: 480px;
   background: $primary;
 }
 .pad{
-  padding: 0px;
+  padding: 4px;
 
 }
 .mar{
-  margin: 0px;
+  margin: 2px;
 }
 
 body {
@@ -158,10 +159,40 @@ top: -40px;
     }
   }
   .MuiTypography-h5{
-    font-family: Roboto-Regular;
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+  
+  }
+  .MuiTypography-h6{
+    font-family: Roboto;
 font-style: normal;
+font-weight: 500;
 font-size: 20px;
 line-height: 24px;
+/* or 120% */
+
+  }
+  .MuiTypography-h4{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 36px;
+    /* or 106% */
+  
+  }
+  .MuiTypography-h3{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
+    /* or 117% */
+  
   }
   .MuiButton-textPrimary{
     font-family: Roboto-Regular;
@@ -175,18 +206,56 @@ padding: 8px 16px;
 }
   }
   .RELIABLE{
-    font-family: Roboto-BoldItalic;
+    font-family: Roboto-bold;
     font-style: normal;
-font-size: 14px;
+font-size: 34px;
+line-height: 36px;
+color: $primary;
+text-align: center;
+letter-spacing: 0.15px;
+
+  }
+  .RELIABLE2{
+    font-family: Roboto;
+    font-style: normal;
+font-size: 20px;
 line-height: 24px;
 color: $primary;
+text-align: center;
+letter-spacing: 0.15px;
+
+  }
+  .RELIABLE3{
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+    
+    text-align: center;
+    letter-spacing: 0.25px;
+    
+    color: #9C1265;
+    
+    
+    /* Inside Auto Layout */
+    
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
 
   }
   .plan{
     color:  #37B400;;
   }
   .plan2{
-    color:  #FF0000;;
+    color:  #9C1265;;
+  }
+  .plan3{
+    color:  #ff0000;;
   }
   .hero-reliable{
     margin-top: 70px;
