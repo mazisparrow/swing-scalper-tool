@@ -1,5 +1,5 @@
-import Amplify, { Auth } from "aws-amplify";
-import awsconfig from "./aws-exports";
+// import Amplify, { Auth } from "aws-amplify";
+// import awsconfig from "./aws-exports";
 
 import * as React from "react";
 import logo from "./logo.svg";
@@ -17,10 +17,12 @@ import { Provider as AuthProvider, Context as AuthContext } from "./context/Auth
 
 import TryToLogin from "./Components/TryToLogin/Index";
 import ConfirmUser from "./Components/ConfirmUser/Index";
+import ForgotPassword from "./Components/ForgotPassword/Index";
+import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 
 //import { withAuthenticator } from '@aws-amplify/ui-react'
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 function Root() {
   const { state } = React.useContext(AuthContext);
@@ -29,6 +31,8 @@ function Root() {
       <Route exact path="/" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/confirm" component={ConfirmUser} />
+      <Route path="/forgotPassword" component={ForgotPassword} />
+      <Route path="/confirmForgotPassword" component={ConfirmForgotPassword} />
     </>
   );
 

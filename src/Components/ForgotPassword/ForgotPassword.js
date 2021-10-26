@@ -19,20 +19,24 @@ import { CardActions } from "@mui/material";
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function ForgotPassword() {
   const history = useHistory();
   const goToPage = React.useCallback((page) => history.push(`/${page}`), [history]);
 
-  const { signin, state } = React.useContext(AuthContext);
-  const handleSubmit = (event) => {
+  const { forgotPassword, clearErrorMessage, state } = React.useContext(AuthContext);
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
 
     const email = data.get("email");
-    const password = data.get("password");
 
-    signin(email, password);
+    const isSuccess = await forgotPassword({ email });
+
+    if (isSuccess) {
+      goToPage("confirmForgotPassword");
+      clearErrorMessage();
+    }
   };
 
   return (
@@ -55,7 +59,7 @@ export default function SignIn() {
           </Avatar>
 
           <Typography component="h1" variant="h5">
-            Sign in
+            Forgot Password
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -68,42 +72,23 @@ export default function SignIn() {
               autoComplete="email"
               autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+
             <CardActions>
               <Button size="small" color="primary" type="submit">
-                Login
+                Forgot Password
               </Button>
             </CardActions>
 
             <Grid container>
-              <Grid item xs>
-                <Link href="/forgotPassword" variant="body2">
-                  Forgot password?
+              <Grid item>
+                <Link href="/" variant="body2">
+                  {"Sign In"}
                 </Link>
               </Grid>
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Sign Up?"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Grid container>
-              <Grid item>
-                <Link href="/confirm" variant="body2">
-                  {"Confirm Email"}
+
+              <Grid item style={{ marginLeft: 10 }}>
+                <Link href="/confirmForgotPassword" variant="body2">
+                  {"Confirm Forgot Password"}
                 </Link>
               </Grid>
             </Grid>

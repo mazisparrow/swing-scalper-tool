@@ -163,6 +163,94 @@ const confirmEmail =
     }
   };
 
+const forgotPassword =
+  (dispatch) =>
+  async ({ email }) => {
+    try {
+      const response = await graphqlClient.request(
+        gql`
+          mutation forgotPassword($email: String!) {
+            forgotPassword(email: $email) {
+              success
+              errors
+            }
+          }
+        `,
+        { email },
+        {}
+      );
+
+      if (
+        !response.forgotPassword.success &&
+        response.forgotPassword.errors &&
+        response.forgotPassword.errors[0]
+      ) {
+        dispatch({
+          type: "add_error",
+          payload: response.forgotPassword.errors[0],
+        });
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: "add_error",
+        payload: "Error when trying to confirm email, Please try agian later.",
+      });
+    }
+  };
+
+const confirmForgotPassword =
+  (dispatch) =>
+  async ({ email, code, password, confirmPassword }) => {
+    try {
+      const response = await graphqlClient.request(
+        gql`
+          mutation confirmForgotPassword(
+            $email: String!
+            $code: String!
+            $password: String!
+            $confirm: String!
+          ) {
+            confirmForgotPassword(
+              email: $email
+              code: $code
+              password: $password
+              confirm: $confirm
+            ) {
+              success
+              errors
+            }
+          }
+        `,
+        { email, code, password, confirm: confirmPassword },
+        {}
+      );
+
+      if (
+        !response.confirmForgotPassword.success &&
+        response.confirmForgotPassword.errors &&
+        response.confirmForgotPassword.errors[0]
+      ) {
+        dispatch({
+          type: "add_error",
+          payload: response.confirmForgotPassword.errors[0],
+        });
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: "add_error",
+        payload: "Error when trying to confirm email, Please try agian later.",
+      });
+    }
+  };
+
 const logout = (dispatch) => async () => {
   await localStorage.removeItem("token");
 
@@ -184,6 +272,15 @@ const tryLocalSignin = (dispatch) => async () => {
 
 export const { Context, Provider } = createDataContext(
   authReducers,
-  { signin, logout, signup, clearErrorMessage, tryLocalSignin, confirmEmail },
+  {
+    signin,
+    logout,
+    signup,
+    clearErrorMessage,
+    tryLocalSignin,
+    confirmEmail,
+    forgotPassword,
+    confirmForgotPassword,
+  },
   { token: null, errorMessage: "", isLoading: true }
 );
