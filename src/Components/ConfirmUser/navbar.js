@@ -25,12 +25,7 @@ export default function ButtonAppBar() {
             <img src={Logo} width="148px" height="138px" />
           </Button>
           <Hidden mdDown>
-            <div className="appbar-btn">
-              <Typography variant="body2" sx={{ marginTop: "30px" }}>
-                Some quick example text to build on the card title and make up the bulk of the card
-                content.
-              </Typography>
-            </div>
+            <div className="appbar-btn"></div>
 
             <Button color="inherit" variant="contained" href="/">
               Login
