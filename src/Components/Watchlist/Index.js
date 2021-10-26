@@ -1,4 +1,5 @@
 import SyncIcon from "@mui/icons-material/Sync";
+import Button from "@mui/material/Button";
 import React from "react";
 import Navbar from "../Dashboard/navbar";
 import { Box } from "@mui/system";
@@ -28,15 +29,31 @@ export default function Index() {
   } = React.useContext(WatchListsContext);
 
   React.useEffect(() => {
-    listWatchLists({ token: state.token });
+    listWatchLists({ token: state.token, ticker: "ticker" });
   }, [state.token]);
 
   const [dataState, setDataState] = React.useState(initialDataState);
+
+  const getStocks = () => {
+    console.log("get Stcoks");
+  };
   return (
     <div>
       <Navbar />
+
       {/* <SyncIcon /> */}
       <Box my={12} mb={15}>
+        <div style={{ display: "flex", justifyContent: "center", margin: "0  15px  15px 0" }}>
+          <Button
+            onClick={getStocks}
+            size="small"
+            color="secondary"
+            type="button"
+            startIcon={<SyncIcon />}
+          >
+            Get Stocks
+          </Button>
+        </div>
         <Grid
           pageable={true}
           sortable={true}
@@ -48,6 +65,7 @@ export default function Index() {
           data={process(watchLists, dataState)}
           {...dataState}
           onDataStateChange={(e) => {
+            console.log(e);
             setDataState(e.dataState);
           }}
         >

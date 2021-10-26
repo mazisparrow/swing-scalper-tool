@@ -36,35 +36,34 @@ const authReducers = (state, action) => {
 
 const listWatchLists =
   (dispatch) =>
-  async ({ token }) => {
+  async ({ token, ticker }) => {
     try {
       const response = await graphqlClient.request(
         gql`
-          query listWatchlists {
-            listWatchlists {
-              items {
-                id
-                createdAt
-                ticker
-                buyPrice
-                priceTargets
-                buyZone
-                buyTrigger
-                stopLoss
-              }
+          query getWatchlist($ticker: String!) {
+            getWatchlist(ticker: $ticker) {
+              id
+              createdAt
+              ticker
+              buyPrice
+              priceTargets
+              buyZone
+              buyTrigger
+              stopLoss
             }
           }
         `,
-        {},
+        { ticker },
         { Authorization: `Bearer ${token}` }
       );
 
-      if (response.items && Array.isArray(response.items)) {
-        dispatch({ action: "add_watchLists", payload: response.items });
-        dispatch({ type: "remove_loading" });
-        dispatch({ type: "clear_errorMessage" });
-        return true;
-      }
+      console.log(response);
+      // if (response.items && Array.isArray(response.items)) {
+      //   dispatch({ action: "add_watchLists", payload: response.items });
+      //   dispatch({ type: "remove_loading" });
+      //   dispatch({ type: "clear_errorMessage" });
+      //   return true;
+      // }
       return false;
     } catch (error) {
       console.log(error);
