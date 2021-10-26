@@ -7,6 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "@progress/kendo-theme-default/dist/all.css";
 
+// $("#gridName").find("table th").eq(1).hide();
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
