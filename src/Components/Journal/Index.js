@@ -4,11 +4,13 @@ import { Box } from "@mui/system";
 import Footer from "./Footer";
 import { Grid, GridColumn as Column, GridToolbar } from "@progress/kendo-react-grid";
 import { process } from "@progress/kendo-data-query";
+import { filterBy } from "@progress/kendo-data-query";
+import { DatePicker } from "@progress/kendo-react-dateinputs";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import { MyCommandCell } from "./myCommandCell";
-import { DropDownCell } from "./myDropDownCell";
+import { DateRangeFilter } from "../filters/DateRangeFilter";
 
 import { CustomDate } from "./CutomDate";
 import { insertItem, getItems, updateItem, deleteItem } from "./services";
@@ -41,6 +43,10 @@ export default function Index() {
   const [data, setData] = React.useState(journals);
   const [dataState, setDataState] = React.useState(initialDataState);
 
+  const [filter, setFilter] = React.useState([]);
+
+  const [dateRange, setDateRange] = React.useState({ minDateFilter: null, maxDateFilter: null });
+
   React.useEffect(() => {
     let isMounted = true;
     listJournals({ token }).then((res) => {
@@ -64,6 +70,60 @@ export default function Index() {
     />
   );
 
+  const filterChange = (event) => {
+    console.log(event);
+    // setFilter({ ...event.filter });
+  };
+  const handleClearDateFilter = () => {
+    let currentFilters = { ...filter };
+    let newFilter = currentFilters.filters.filter((filter) => {
+      return filter.field !== "createdAt";
+    });
+    currentFilters.filters = newFilter;
+    setDateRange({ minDateFilter: null, maxDateFilter: null });
+    setFilter({ ...currentFilters });
+  };
+
+  const handleDateFilterChange = (event) => {
+    let currentFilters = { ...filter };
+
+    if (event.operator === "gt") {
+      setDateRange({ ...dateRange, minDateFilter: event.value });
+    } else {
+      setDateRange({ ...dateRange, maxDateFilter: event.value });
+    }
+    if (currentFilters.filters) {
+      let newFilter = currentFilters.filters.filter((filter) => {
+        return !(filter.field === "createdAt" && filter.operator === event.operator);
+      });
+      currentFilters.filters = newFilter;
+      currentFilters.filters.push({
+        field: "createdAt",
+        operator: event.operator,
+        value: event.value,
+      });
+    } else {
+      currentFilters.filters = [];
+      currentFilters.logic = "and";
+      currentFilters.filters.push({
+        field: "createdAt",
+        operator: event.operator,
+        value: event.value,
+      });
+    }
+    setFilter({ ...currentFilters });
+  };
+
+  const MyDateFilterCell = (props) => (
+    <DateRangeFilter
+      {...props}
+      min={dateRange.minDateFilter}
+      max={dateRange.maxDateFilter}
+      onDateFilterChange={handleDateFilterChange}
+      onDateFilterClear={handleClearDateFilter}
+    />
+  );
+
   const remove = (dataItem) => {
     const newData = deleteItem(data, dataItem);
     setData(newData);
@@ -77,10 +137,11 @@ export default function Index() {
       !isNaN(dataItem.pTarget) &&
       !isNaN(dataItem.quantity) &&
       dataItem.ticker &&
+      dataItem.strategy &&
       !isNaN(dataItem.stopLoss)
     ) {
       const newData = insertItem(data, dataItem);
-      setData(newData);
+      setData([...newData]);
 
       const isSucess = await createJournal({
         token,
@@ -89,6 +150,7 @@ export default function Index() {
         pTarget: [parseInt(dataItem.pTarget)],
         ticker: dataItem.ticker,
         stopLoss: parseInt(dataItem.stopLoss),
+        strategy: dataItem.strategy,
       });
     }
   };
@@ -152,6 +214,7 @@ export default function Index() {
   const setEditable = () => {
     return editedRecord && editedRecord.tradeStatus === "Open";
   };
+  console.log(filter);
 
   return (
     <div>
@@ -168,6 +231,8 @@ export default function Index() {
             width: "100%",
           }}
           data={process(data, dataState)}
+          // filter={filter}
+          // onFilterChange={filterChange}
           onDataStateChange={(e) => {
             setDataState(e.dataState);
           }}
@@ -191,12 +256,15 @@ export default function Index() {
             field="createdAt"
             title="Created At"
             editor="date"
-            format="{0:d}"
+            filter="date"
             cell={CustomDate}
-            filterable={false}
+            width={300}
+            filterCell={MyDateFilterCell}
+            filter="date"
+            filterable={true}
             editable={false}
           />
-          <Column field="ticker" title="Ticker" filterable={false} editable={true} />
+          <Column field="ticker" title="Ticker" filterable={true} filter="text" editable={true} />
           <Column field="quantity" title="Qty" filterable={false} editable={true} />
           <Column
             field="buyPrice"
@@ -250,14 +318,16 @@ export default function Index() {
             title="Sell Date"
             editor="date"
             format="{0:d}"
-            filterable={false}
+            cell={CustomDate}
+            filterable={true}
+            filter="date"
             editable={false}
           />
           <Column
             field="strategy"
             title="Strategy"
             width="150px"
-            editable={false}
+            editable={true}
             filterable={false}
           />
         </Grid>
