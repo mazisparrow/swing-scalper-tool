@@ -11,6 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import { Grid as MaterialGrid } from "@mui/material";
 
 import Navbar from "../Dashboard/navbar";
+import Footer from "./Footer";
 import { LinearGaugeComponent } from "./LinearGaugeComponent";
 import { RadialGaugeComponent } from "./RadialGaugeComponent";
 import { ArcGaugeComponent } from "./ArcGaugeComponent";
@@ -102,7 +103,7 @@ export default function Index() {
             <Column field="buyPrice" title="Price" filterable={false} editable={false} />
             <Column field="stopLoss" title="Stop Loss" filterable={false} editable={false} />
             <Column field="priceTargets" title="Price Target" filterable={false} editable={false} />
-            <Column field="priceTarget" title="Risk/Reward" filterable={false} editable={false} />
+            <Column field="rsi14" title="Risk/Reward" filterable={false} editable={false} />
           </Grid>
         </Box>
       </div>
@@ -133,6 +134,7 @@ export default function Index() {
           </MaterialGrid>
         </MaterialGrid>
       </MaterialGrid>
+      <Footer />
     </>
   );
 }

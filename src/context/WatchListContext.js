@@ -56,6 +56,7 @@ const getWatchlist =
               buyTrigger
               sma20
               sma200
+              rsi14
             }
           }
         `,
