@@ -134,7 +134,7 @@ export default function Index() {
 
     if (
       !isNaN(dataItem.buyPrice) &&
-      !isNaN(dataItem.pTarget) &&
+      !isNaN(dataItem.priceTargets) &&
       !isNaN(dataItem.quantity) &&
       dataItem.ticker &&
       dataItem.strategy &&
@@ -147,7 +147,7 @@ export default function Index() {
         token,
         quantity: parseInt(dataItem.quantity),
         buyPrice: parseInt(dataItem.buyPrice),
-        pTarget: [parseInt(dataItem.pTarget)],
+        pTarget: [parseInt(dataItem.priceTargets)],
         ticker: dataItem.ticker,
         stopLoss: parseInt(dataItem.stopLoss),
         strategy: dataItem.strategy,
@@ -267,23 +267,23 @@ export default function Index() {
           <Column field="quantity" title="Qty" filterable={false} editable={true} />
           <Column
             field="buyPrice"
-            title="Avg Price"
+            title="Avg Price $"
             filterable={false}
             filter="numeric"
             editable={true}
           />
-          <Column field="stopLoss" title="Stop Loss" filterable={false} editable={true} />
-          <Column field="pTarget" title="Price Target" filterable={false} editable={true} />
+          <Column field="stopLoss" title="Stop Loss $" filterable={false} editable={true} />
+          <Column field="priceTargets" title="Price Target $" filterable={false} editable={true} />
           <Column
             field="tradeRisk"
-            title="Risk"
+            title="Risk $"
             editable={false}
             filterable={false}
             width="100px"
           />
           <Column
             field="tradeReward"
-            title="Reward"
+            title="Reward $"
             editable={false}
             filterable={false}
             filter="numeric"
@@ -298,7 +298,7 @@ export default function Index() {
           />
           <Column
             field="sellPrice"
-            title="Sell Price"
+            title="Sell Price $"
             editor="numeric"
             filterable={false}
             editable={setEditable()}

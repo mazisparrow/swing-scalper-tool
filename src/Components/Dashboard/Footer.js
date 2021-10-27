@@ -7,15 +7,18 @@ export default function Footer() {
             <Box bgcolor="#9C1265"  py={2} >
                 <Container>
                     <Grid container >
-                      <Grid item lg={6}  md={6} sm={6} xs={6}>
+                      <Grid item lg={6} >
                       <Typography variant="body2" sx={{color:"white"}}  >
             TECH TELOS INC 2021
         </Typography>
+        <Typography variant="body2" sx={{color:"white"}}  >
+            support@swingscalp.com
+        </Typography>
                       </Grid>
-                      <Grid item lg={6} md={6} sm={6} xs={6} >
-                      <Box textAlign="end"   className="privacy" >
+                      <Grid item lg={6} >
+                      <Box textAlign="end"  className="privacy" >
                         <Dilogbox/>
-                         </Box>
+        </Box>
                       </Grid>
             
                     </Grid>
@@ -23,8 +26,6 @@ export default function Footer() {
     
         </Container>
             </Box>
-            
         </div>
-        
     )
 }
