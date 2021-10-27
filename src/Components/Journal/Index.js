@@ -214,7 +214,6 @@ export default function Index() {
   const setEditable = () => {
     return editedRecord && editedRecord.tradeStatus === "Open";
   };
-  console.log(filter);
 
   return (
     <div>
