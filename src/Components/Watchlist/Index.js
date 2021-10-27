@@ -2,7 +2,9 @@ import * as React from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
-import { Box } from "@mui/system";
+// import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
+
 import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
 import { CardHeader } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
@@ -33,36 +35,56 @@ export default function Index() {
     state: { token },
   } = React.useContext(AuthContext);
   const {
-    state: { watchList },
+    state: { watchList, errorMessage },
+    getWatchlist,
   } = React.useContext(WatchListContext);
 
+  const [stateWatchList, setStateWatchList] = React.useState({});
+
+  const [ticker, setTicker] = React.useState("");
+
+  const handleSearch = async () => {
+    const response = await getWatchlist({ token, ticker });
+    if (response) setStateWatchList(response);
+    setTicker("");
+  };
+
+  console.log("sm20: ", stateWatchList.sma20);
+  console.log("buy price ", stateWatchList.buyPrice);
+  console.log("sma200: ", stateWatchList.sma200);
   return (
     <>
       <Navbar />
 
-      {/* Search Section*/}
-      <MaterialGrid container justifyContent="center" style={{ marginTop: "30px" }}>
-        <Paper
-          component="form"
-          sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: "50%" }}
-        >
-          <InputBase
-            sx={{ ml: 1, flex: 1, fontSize: "1.5rem" }}
-            placeholder="Search Watch List"
-            inputProps={{ "aria-label": "search watchList" }}
-          />
+      {errorMessage ? <h4 style={{ color: "red", textAlign: "center" }}>{errorMessage}</h4> : null}
+      <Box component="form" noValidate sx={{ mt: 3 }}>
+        <MaterialGrid container justifyContent="center" style={{ marginTop: "30px" }}>
+          <Paper sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: "50%" }}>
+            <InputBase
+              sx={{ ml: 1, flex: 1, fontSize: "1.5rem" }}
+              placeholder="Enter a Ticker"
+              inputProps={{ "aria-label": "search watchList" }}
+              value={ticker}
+              onChange={(e) => setTicker(e.target.value)}
+            />
 
-          <IconButton type="button" sx={{ p: "10px", alignSelf: "center" }} aria-label="search">
-            <Button
-              style={{ backgroundColor: "#9F3D65", color: "white" }}
-              variant="contained"
-              href="#"
+            <IconButton
+              type="submit"
+              sx={{ p: "10px", alignSelf: "center" }}
+              aria-label="search"
+              onClick={() => handleSearch()}
             >
-              Search
-            </Button>
-          </IconButton>
-        </Paper>
-      </MaterialGrid>
+              <Button
+                style={{ backgroundColor: "#9F3D65", color: "white" }}
+                variant="contained"
+                href="#"
+              >
+                Search
+              </Button>
+            </IconButton>
+          </Paper>
+        </MaterialGrid>
+      </Box>
 
       <div
         style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}
@@ -74,12 +96,12 @@ export default function Index() {
               fontSize: "1.3rem",
               height: "100%",
             }}
-            data={[{ ticker: "hello", quantity: 100, buyPrice: 150 }]}
+            data={[{ ...stateWatchList }]}
           >
             <Column field="ticker" title="Ticker" filterable={false} editable={false} />
-            <Column field="price" title="Price" filterable={false} editable={false} />
+            <Column field="buyPrice" title="Price" filterable={false} editable={false} />
             <Column field="stopLoss" title="Stop Loss" filterable={false} editable={false} />
-            <Column field="priceTarget" title="Price Target" filterable={false} editable={false} />
+            <Column field="priceTargets" title="Price Target" filterable={false} editable={false} />
             <Column field="priceTarget" title="Risk/Reward" filterable={false} editable={false} />
           </Grid>
         </Box>
@@ -88,18 +110,26 @@ export default function Index() {
       <MaterialGrid sx={{ marginTop: "5rem" }} container>
         <MaterialGrid item xs={12}>
           <MaterialGrid container justifyContent="space-around" spacing={0} style={{ padding: 10 }}>
-            <MaterialGrid className="guage" item sx={{ maxWidth: 345, flexBasis: 350 }}>
-              <CardHeader title="RSI" />
-              <MyRadialGaugeComponent rsi="rsi" />
-            </MaterialGrid>
-            <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
-              <CardHeader title="Buy Zone" />
-              <MyLinearGaugeComponent buyZone="buyZone" />
-            </MaterialGrid>
-            <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
-              <CardHeader title="Buy Tigger" />
-              <MyArcGaugeComponent buyTigger="buyTigger" />
-            </MaterialGrid>
+            {stateWatchList.buyPrice <= stateWatchList.sma200 ? (
+              <MaterialGrid className="guage" item sx={{ maxWidth: 345, flexBasis: 350 }}>
+                <CardHeader title="Buy Price" />
+                <MyRadialGaugeComponent watchList={stateWatchList} />
+              </MaterialGrid>
+            ) : null}
+
+            {stateWatchList.buyZone ? (
+              <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
+                <CardHeader title="Buy Zone" />
+                <MyLinearGaugeComponent watchList={stateWatchList} />
+              </MaterialGrid>
+            ) : null}
+
+            {stateWatchList.buyTrigger ? (
+              <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
+                <CardHeader title="Buy Tigger" />
+                <MyArcGaugeComponent watchList={stateWatchList} />
+              </MaterialGrid>
+            ) : null}
           </MaterialGrid>
         </MaterialGrid>
       </MaterialGrid>

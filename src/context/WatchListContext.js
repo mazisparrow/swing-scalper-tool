@@ -7,10 +7,12 @@ import { client as graphqlClient } from "../api/axios";
 
 const watchListReducers = (state, action) => {
   switch (action.type) {
-    case "fetch_watchList":
+    case "add_watchList":
       return {
         ...state,
-        watchLists: action.payload,
+        errorMessage: "",
+        isLoading: false,
+        watchList: action.payload,
       };
 
     case "add_loading":
@@ -42,30 +44,36 @@ const getWatchlist =
         gql`
           query getWatchlist($ticker: String!) {
             getWatchlist(ticker: $ticker) {
+              success
+              errors
               id
-              createdAt
-              ticker
+              buyTrigger
               buyPrice
               priceTargets
               buyZone
-              buyTrigger
+              ticker
               stopLoss
+              buyTrigger
+              sma20
+              sma200
             }
           }
         `,
         { ticker },
         { Authorization: `Bearer ${token}` }
       );
-
-      console.log(response);
-      // if (response.items && Array.isArray(response.items)) {
-      //   dispatch({ action: "add_watchLists", payload: response.items });
-      //   dispatch({ type: "remove_loading" });
-      //   dispatch({ type: "clear_errorMessage" });
-      //   return true;
-      // }
+      if (response.getWatchlist && response.getWatchlist.success && !response.getWatchlist.errors) {
+        dispatch({ action: "add_watchList", payload: response.getWatchlist });
+        dispatch({ type: "remove_loading" });
+        dispatch({ type: "clear_errorMessage" });
+        return response.getWatchlist;
+      }
       return false;
     } catch (error) {
+      dispatch({
+        type: "add_error",
+        payload: `Error When Fetching Watch List with ticker ${ticker}`,
+      });
       console.log(error);
     }
   };
