@@ -59,6 +59,7 @@ const listJournals =
                 quantity
                 buyPrice
                 stopLoss
+                priceTargets
                 tradeRisk
                 tradeReward
                 profitLossPercentage
@@ -133,8 +134,8 @@ const updateJournal =
 
 const createJournal =
   (dispatch) =>
-  async ({ token, ticker, quantity, buyPrice, stopLoss, pTarget }) => {
-    console.log(token, ticker, quantity, buyPrice, stopLoss, pTarget);
+  async ({ token, ticker, quantity, buyPrice, stopLoss, priceTargets }) => {
+    console.log(token, ticker, quantity, buyPrice, stopLoss, priceTargets);
     try {
       const response = await graphqlClient.request(
         gql`
@@ -142,7 +143,7 @@ const createJournal =
             $ticker: String!
             $quantity: Int!
             $buyPrice: Float!
-            $pTarget: [Float!]
+            $priceTargets: [Float!]
             $stopLoss: Float!
           ) {
             createJournal(
@@ -151,7 +152,7 @@ const createJournal =
                 quantity: $quantity
                 buyPrice: $buyPrice
                 stopLoss: $stopLoss
-                pTarget: $pTarget
+                priceTargets: $priceTargets
               }
             ) {
               id
@@ -159,7 +160,7 @@ const createJournal =
             }
           }
         `,
-        { ticker, quantity, buyPrice, stopLoss, pTarget },
+        { ticker, quantity, buyPrice, stopLoss, priceTargets },
         { Authorization: `Bearer ${token}` }
       );
 

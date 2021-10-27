@@ -11,6 +11,9 @@ export default function Footer() {
                       <Typography variant="body2" sx={{color:"white"}}  >
             TECH TELOS INC 2021
         </Typography>
+        <Typography variant="body2" sx={{color:"white"}}  >
+            support@swingscalp.com
+        </Typography>
                       </Grid>
                       <Grid item lg={6} >
                       <Box textAlign="end"  className="privacy" >
