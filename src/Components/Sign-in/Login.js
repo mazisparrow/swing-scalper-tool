@@ -41,7 +41,7 @@ export default function SignIn() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 1,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -54,9 +54,6 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
 
-          <Typography component="h1" variant="h5">
-            Login
-          </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"

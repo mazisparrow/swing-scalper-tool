@@ -21,9 +21,7 @@ import ConfirmUser from "./Components/ConfirmUser/Index";
 import ForgotPassword from "./Components/ForgotPassword/Index";
 import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 
-//import { withAuthenticator } from '@aws-amplify/ui-react'
-
-// Amplify.configure(awsconfig);
+Amplify.configure(awsconfig);
 
 function Root() {
   const { state } = React.useContext(AuthContext);
