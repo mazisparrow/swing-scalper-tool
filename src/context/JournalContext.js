@@ -5,7 +5,7 @@ import { gql } from "graphql-request";
 import createDataContext from "./createDataContext";
 import { client as graphqlClient } from "../api/axios";
 
-const authReducers = (state, action) => {
+const journalReducers = (state, action) => {
   switch (action.type) {
     case "list_journals":
       return {
@@ -182,7 +182,7 @@ const createJournal =
   };
 
 export const { Context, Provider } = createDataContext(
-  authReducers,
+  journalReducers,
   { listJournals, updateJournal, createJournal },
   { journals: [], errorMessage: "", isLoading: true }
 );

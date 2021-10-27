@@ -14,7 +14,8 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { Provider as AuthProvider, Context as AuthContext } from "./context/AuthContext";
-import { Provider as JournalProvider, Context as JournalContext } from "./context/JournalContext";
+import { Provider as JournalProvider } from "./context/JournalContext";
+import { Provider as WatchListProvider } from "./context/WatchListContext";
 
 import TryToLogin from "./Components/TryToLogin/Index";
 import ConfirmUser from "./Components/ConfirmUser/Index";
@@ -26,17 +27,18 @@ import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 function Root() {
   const { state } = React.useContext(AuthContext);
   const authFlow = (
-    <>
+    <Switch>
       <Route exact path="/" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/confirm" component={ConfirmUser} />
       <Route path="/forgotPassword" component={ForgotPassword} />
       <Route path="/confirmForgotPassword" component={ConfirmForgotPassword} />
-    </>
+      <Route path="*" exact component={Signin} />
+    </Switch>
   );
 
   const appFlow = (
-    <>
+    <Switch>
       <Route path="/" exact>
         <Redirect to="/dashboard" />
       </Route>
@@ -44,7 +46,7 @@ function Root() {
       <Route path="/journal" component={Journal} />
       <Route path="/trade" component={Trade} />
       <Route path="/watchlist" component={Watchlist} />
-    </>
+    </Switch>
   );
 
   return state.token ? appFlow : authFlow;
@@ -55,14 +57,14 @@ function App() {
     <>
       <AuthProvider>
         <JournalProvider>
-          <TryToLogin>
-            <StyledEngineProvider injectFirst>
-              <CssBaseline />
-              <Switch>
+          <WatchListProvider>
+            <TryToLogin>
+              <StyledEngineProvider injectFirst>
+                <CssBaseline />
                 <Root />
-              </Switch>
-            </StyledEngineProvider>
-          </TryToLogin>
+              </StyledEngineProvider>
+            </TryToLogin>
+          </WatchListProvider>
         </JournalProvider>
       </AuthProvider>
     </>

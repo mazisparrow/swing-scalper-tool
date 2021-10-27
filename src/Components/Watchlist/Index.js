@@ -13,18 +13,28 @@ import { LinearGaugeComponent } from "./LinearGaugeComponent";
 import { RadialGaugeComponent } from "./RadialGaugeComponent";
 import { ArcGaugeComponent } from "./ArcGaugeComponent";
 
+import { Context as AuthContext } from "../../context/AuthContext";
+import { Context as WatchListContext } from "../../context/WatchListContext";
+
+const MyLinearGaugeComponent = (props) => {
+  return <LinearGaugeComponent {...props} />;
+};
+
+const MyRadialGaugeComponent = (props) => {
+  return <RadialGaugeComponent {...props} />;
+};
+
+const MyArcGaugeComponent = (props) => {
+  return <ArcGaugeComponent {...props} />;
+};
+
 export default function Index() {
-  const MyLinearGaugeComponent = (props) => {
-    return <LinearGaugeComponent {...props} />;
-  };
-
-  const MyRadialGaugeComponent = (props) => {
-    return <RadialGaugeComponent {...props} />;
-  };
-
-  const MyArcGaugeComponent = (props) => {
-    return <ArcGaugeComponent {...props} />;
-  };
+  const {
+    state: { token },
+  } = React.useContext(AuthContext);
+  const {
+    state: { watchList },
+  } = React.useContext(WatchListContext);
 
   return (
     <>
@@ -80,15 +90,15 @@ export default function Index() {
           <MaterialGrid container justifyContent="space-around" spacing={0} style={{ padding: 10 }}>
             <MaterialGrid className="guage" item sx={{ maxWidth: 345, flexBasis: 350 }}>
               <CardHeader title="RSI" />
-              <MyRadialGaugeComponent />
+              <MyRadialGaugeComponent rsi="rsi" />
             </MaterialGrid>
             <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
               <CardHeader title="Buy Zone" />
-              <MyLinearGaugeComponent />
+              <MyLinearGaugeComponent buyZone="buyZone" />
             </MaterialGrid>
             <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
               <CardHeader title="Buy Tigger" />
-              <MyArcGaugeComponent />
+              <MyArcGaugeComponent buyTigger="buyTigger" />
             </MaterialGrid>
           </MaterialGrid>
         </MaterialGrid>
