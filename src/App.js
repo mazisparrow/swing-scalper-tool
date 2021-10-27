@@ -21,8 +21,6 @@ import ConfirmUser from "./Components/ConfirmUser/Index";
 import ForgotPassword from "./Components/ForgotPassword/Index";
 import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 
-import { withAuthenticator } from '@aws-amplify/ui-react'
-
 Amplify.configure(awsconfig);
 
 function Root() {
@@ -71,4 +69,4 @@ function App() {
   );
 }
 
-export default withAuthenticator(App)
+export default (App)
