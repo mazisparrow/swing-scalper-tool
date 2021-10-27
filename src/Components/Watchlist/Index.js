@@ -1,144 +1,100 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Context as AuthContext } from "../../context/AuthContext";
-import { CardActions } from "@mui/material";
-import Navbar from "./navbar";
+import { Box } from "@mui/system";
+import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
+import { CardHeader } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import { Grid as MaterialGrid } from "@mui/material";
 
-const theme = createTheme();
+import Navbar from "../Dashboard/navbar";
+import { LinearGaugeComponent } from "./LinearGaugeComponent";
+import { RadialGaugeComponent } from "./RadialGaugeComponent";
+import { ArcGaugeComponent } from "./ArcGaugeComponent";
 
-export default function SignUp() {
-  const history = useHistory();
-  const goToPage = React.useCallback((page) => history.push(`/${page}`), [history]);
-  const { signup, state } = React.useContext(AuthContext);
+export default function Index() {
+  const MyLinearGaugeComponent = (props) => {
+    return <LinearGaugeComponent {...props} />;
+  };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+  const MyRadialGaugeComponent = (props) => {
+    return <RadialGaugeComponent {...props} />;
+  };
 
-    const email = data.get("email");
-    const password = data.get("password");
-    const phone = data.get("phone");
-    const firstName = data.get("firstName");
-    const lastName = data.get("lastName");
-    const confirmPassword = data.get("confirmPassword");
-
-    const isSignedIn = await signup({
-      email,
-      password,
-      confirmPassword,
-      phone,
-      firstName,
-      lastName,
-    });
-
-    if (isSignedIn) goToPage("confirm");
+  const MyArcGaugeComponent = (props) => {
+    return <ArcGaugeComponent {...props} />;
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Navbar />
-      <Container component="main" maxWidth="sm" style={{ marginTop: 30 }}>
-        <CssBaseline />
 
-        <Box
-          sx={{
-            marginTop: 0,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+      {/* Search Section*/}
+      <MaterialGrid container justifyContent="center" style={{ marginTop: "30px" }}>
+        <Paper
+          component="form"
+          sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: "50%" }}
         >
-          {state.errorMessage ? (
-            <Typography style={{ color: "red" }}>{state.errorMessage}</Typography>
-          ) : null}
+          <InputBase
+            sx={{ ml: 1, flex: 1, fontSize: "1.5rem" }}
+            placeholder="Search Watch List"
+            inputProps={{ "aria-label": "search watchList" }}
+          />
 
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={5}>
-              <Grid item xs={12} sm={6}>
-                <Typography component="h1" variant="h5">
-                  Sign up
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Typography component="h1" variant="h5">
-                  Sign up
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="confirmPassword"
-                  label="confirmPassword"
-                  type="password"
-                  id="confirmPassword"
-                  autoComplete="new-password"
-                />
-              </Grid>
+          <IconButton type="button" sx={{ p: "10px", alignSelf: "center" }} aria-label="search">
+            <Button
+              style={{ backgroundColor: "#9F3D65", color: "white" }}
+              variant="contained"
+              href="#"
+            >
+              Search
+            </Button>
+          </IconButton>
+        </Paper>
+      </MaterialGrid>
 
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="phone"
-                  label="phone"
-                  type="phone"
-                  id="phone"
-                  autoComplete="phone"
-                />
-              </Grid>
-            </Grid>
-
-            <CardActions>
-              <Button size="small" color="primary" type="submit">
-                Sign up
-              </Button>
-            </CardActions>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="/" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
+      <div
+        style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}
+      >
+        <Box my={12} mb={15}>
+          <Grid
+            style={{
+              textAlign: "center",
+              fontSize: "1.3rem",
+              height: "100%",
+            }}
+            data={[{ ticker: "hello", quantity: 100, buyPrice: 150 }]}
+          >
+            <Column field="ticker" title="Ticker" filterable={false} editable={false} />
+            <Column field="price" title="Price" filterable={false} editable={false} />
+            <Column field="stopLoss" title="Stop Loss" filterable={false} editable={false} />
+            <Column field="priceTarget" title="Price Target" filterable={false} editable={false} />
+            <Column field="priceTarget" title="Risk/Reward" filterable={false} editable={false} />
+          </Grid>
         </Box>
-      </Container>
-    </ThemeProvider>
+      </div>
+
+      <MaterialGrid sx={{ marginTop: "5rem" }} container>
+        <MaterialGrid item xs={12}>
+          <MaterialGrid container justifyContent="space-around" spacing={0} style={{ padding: 10 }}>
+            <MaterialGrid className="guage" item sx={{ maxWidth: 345, flexBasis: 350 }}>
+              <CardHeader title="RSI" />
+              <MyRadialGaugeComponent />
+            </MaterialGrid>
+            <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
+              <CardHeader title="Buy Zone" />
+              <MyLinearGaugeComponent />
+            </MaterialGrid>
+            <MaterialGrid item sx={{ maxWidth: 345, flexBasis: 300 }} className="guage">
+              <CardHeader title="Buy Tigger" />
+              <MyArcGaugeComponent />
+            </MaterialGrid>
+          </MaterialGrid>
+        </MaterialGrid>
+      </MaterialGrid>
+    </>
   );
+}
+{
 }

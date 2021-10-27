@@ -3,7 +3,7 @@
 
 import * as React from "react";
 import logo from "./logo.svg";
-import "./App.scss";
+import "./App.css";
 import Signin from "./Components/Sign-in/Index";
 import Signup from "./Components/Sign-up/Index";
 import Dashboard from "./Components/Dashboard/Index";
@@ -21,7 +21,7 @@ import ConfirmUser from "./Components/ConfirmUser/Index";
 import ForgotPassword from "./Components/ForgotPassword/Index";
 import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 function Root() {
   const { state } = React.useContext(AuthContext);

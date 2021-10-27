@@ -19,6 +19,7 @@
     "@progress/kendo-react-data-tools": "^4.9.0",
     "@progress/kendo-react-dateinputs": "^4.9.0",
     "@progress/kendo-react-dropdowns": "^4.9.0",
+    "@progress/kendo-react-gauges": "^4.9.0",
     "@progress/kendo-react-grid": "^4.9.0",
     "@progress/kendo-react-indicators": "^4.9.0",
     "@progress/kendo-react-inputs": "^4.9.0",

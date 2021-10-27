@@ -3656,7 +3656,7 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
 
-"@progress/kendo-charts@^1.19.0":
+"@progress/kendo-charts@^1.18.0", "@progress/kendo-charts@^1.19.0":
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@progress/kendo-charts/-/kendo-charts-1.19.0.tgz#f20fe3bf9c482697e69455e2c50745517b33aa40"
   integrity sha512-dO2pO5eU92YKCTmb90PXxwbtvTpmPj5XypqKru7aBddbAtphlg34Np1BxK9UeDnT55IQjsMarzjJJ2GNiGF3jw==
@@ -3758,6 +3758,15 @@
     "@progress/kendo-react-common" "4.9.0"
     "@progress/kendo-react-labels" "4.9.0"
     "@progress/kendo-react-popup" "4.9.0"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-gauges@^4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-gauges/-/kendo-react-gauges-4.9.0.tgz#6e29c18781729c1de93c328dae155433d5fac3bc"
+  integrity sha512-qqb3fnhXVUFP8FtlPSonTDXaXzGDTaNHfDDHZvVaH3vHpGwM3eV4c9LF0Lbt/00m0KEfzZLGMPjDZzKBrG3aiw==
+  dependencies:
+    "@progress/kendo-charts" "^1.18.0"
+    "@progress/kendo-react-common" "4.9.0"
     prop-types "^15.6.0"
 
 "@progress/kendo-react-grid@^4.9.0":
