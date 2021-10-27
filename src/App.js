@@ -1,5 +1,5 @@
-import Amplify, { Auth } from "aws-amplify";
-import awsconfig from "./aws-exports";
+// import Amplify, { Auth } from "aws-amplify";
+// import awsconfig from "./aws-exports";
 
 import * as React from "react";
 import logo from "./logo.svg";
@@ -20,8 +20,14 @@ import TryToLogin from "./Components/TryToLogin/Index";
 import ConfirmUser from "./Components/ConfirmUser/Index";
 import ForgotPassword from "./Components/ForgotPassword/Index";
 import ConfirmForgotPassword from "./Components/ConfirmForgotPassword/Index";
+import Subscription from "./Components/Subscription/Index";
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
+
+window.Chargebee.init({
+  site: "honeycomics-v3-test",
+  publishableKey: "test_qoH22RugUvm5IcxoqUD5Svdcu9mX5figf",
+});
 
 function Root() {
   const { state } = React.useContext(AuthContext);
@@ -44,6 +50,7 @@ function Root() {
       <Route path="/journal" component={Journal} />
       <Route path="/trade" component={Trade} />
       <Route path="/watchlist" component={Watchlist} />
+      <Route path="/subscription" component={Subscription} />
     </>
   );
 
@@ -69,4 +76,4 @@ function App() {
   );
 }
 
-export default (App)
+export default App;
